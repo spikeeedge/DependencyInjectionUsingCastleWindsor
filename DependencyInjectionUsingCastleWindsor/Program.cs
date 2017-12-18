@@ -2,15 +2,23 @@
 {
     using System;
 
-    class Program
+    public class Program
     {
+
         static void Main(string[] args)
         {
             Console.WriteLine("Program Started");
 
-            IoC.Register();
+            Container.Register();
 
-            Console.WriteLine("IoC Registered");
+            var customer = Container.For<ICustomer>();
+            
+            Console.WriteLine("Container Registered");
+            
+            customer.FullName("Steve", "Smith");
+
+            Console.ReadKey();
+
         }
     }
 }
